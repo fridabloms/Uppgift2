@@ -1,0 +1,237 @@
+@charset "UTF-8";
+
+html {
+    font-size: 16px;
+}
+
+html body{
+height: 100%;
+}
+
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(0, 0, 0);
+    background-color: aliceblue;
+    max-width: 1000px;
+    margin: 0;
+    padding: 20px;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr repeat(6,minmax(auto, 10em)) 1fr;
+    grid-template-rows: minmax(1em, auto) 1fr auto minmax(1em, auto);
+    grid-template-areas: 
+    "nav   nav   nav   nav   nav   nav   nav  nav"
+    ". header   header   header   header   header   header ."
+    ". intro     intro  content1   content1  content1   content1 ."
+    ". content2 content2  content2 content3  content3   content3 ."
+    "footer  footer   footer   footer   footer   footer   footer   footer";
+
+}
+
+nav {
+    grid-area: nav;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(68, 68, 67);
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+}
+
+nav a:link,
+nav a:visited{
+    background-color: rgb(68, 68, 67);
+}
+
+nav a:hover,
+nav a:active{
+    background-color: rgb(203, 218, 245);
+}
+
+header {
+    grid-area: header;
+    font-size: 1.8rem;
+    color: rgb(68, 68, 67);
+    text-align:center;
+    background-image: url(../images/header_cloud.jpg);
+    height: 200px;
+    background-size: cover;
+    background-position: bottom;
+    box-shadow: 0px 2px 10px 1px grey;
+}
+
+.intro {
+    grid-area: intro;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(220, 240, 243);
+}
+
+.intro img{
+    height: 100px;
+    width: 100px;  
+}
+
+.content1 {
+    grid-area: content1;
+    background-color:rgb(245, 226, 204);
+}
+
+.content2 {
+    grid-area: content2;
+    background-color:rgb(181, 220, 220)
+}
+
+.content3 {
+    grid-area: content3;
+    background-color: rgb(245, 213, 225);
+}
+
+
+.intro, .content1, .content2, .content3 {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+footer {
+    grid-area: footer;
+    border-top: 1px solid black;
+    background-color:dimgray;
+    color: white;
+    padding: 20px;
+}
+
+.next {
+    color: white;
+}
+
+#scale_img {
+    height: 200px;
+    width: 250px;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+}
+
+#scale_img:hover {
+    transform: scale(1.5);
+    transition: transform 1s;
+}
+
+.h2_style {
+    font-style: italic;
+}
+
+.parent-element{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mq_img{
+    width: 250px;
+    height: 160px;
+}
+
+#mq_img:hover{
+    transform: rotate(10deg);
+    transform-origin: top left;
+}
+
+#garretts_img{
+    width: 200px;
+    height: 180px;
+    transition-duration: 2s;
+}
+
+#garretts_img:hover {
+    transform: scale(2.5);
+    transition: transform 1s;
+    transition-timing-function: ease-in-out;
+}
+
+#styled_url {
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 870px) {
+    body {
+        grid-template-columns: 1fr auto auto 1fr;
+        grid-template-rows: min-max(1em, auto) 1fr min-content auto min-content min-content;
+
+        grid-template-areas: 
+            "nav nav  nav nav"
+            ". header header ."
+            ". intro  intro ."
+            ". content1 content2 ."
+            ". content3 content3 ."
+            "footer footer footer footer";
+    }
+    
+    #garretts_img:hover {
+        transform: scale(1.6);
+    }
+
+}
+
+
+@media screen and (max-width: 700px) {
+    .intro {
+        font-size: 0.8rem;
+    }
+
+    .intro img{
+        height: 50px;
+        width: 50px;
+    }
+
+    header {
+        font-size: 1.6rem;
+        height: 150px;
+    }
+
+    #garretts_img:hover {
+        transform: scale(1.5);
+    }
+
+    #scale_img:hover {
+        transform: scale(1.2);
+        transition: transform 1s;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        grid-template-columns: auto;
+        grid-template-rows: min-max(1em, auto) 1fr auto min-content min-content min-content min-content;
+
+        grid-template-areas: 
+            "nav nav nav"
+            ".  header ."
+            ".  intro  ."
+            ". content1 ."
+            ". content2 ."
+            ". content3 ."
+            "footer footer  footer";
+    }
+    
+
+}
+
+
+
